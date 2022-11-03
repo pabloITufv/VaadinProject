@@ -6,11 +6,8 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.*;
+import org.w3c.dom.Text;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -32,20 +29,25 @@ public class MyUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
         //Vertical Layout es un Marco en Vaadin
         final VerticalLayout layout = new VerticalLayout();
+        final HorizontalLayout salarioBruto = new HorizontalLayout();
+        final HorizontalLayout salarioNeto = new HorizontalLayout();
+        TextField tipo = creaLabel("Tipo empleado:");
+        TextField ventasMes = creaLabel("Ventas del Mes:");
+        TextField horasExtra = creaLabel("Horas Extra:");
 
         //Esto es para el huequecito de la cagita
-        final TextField name = new TextField();
-        name.setCaption("Type your name here:");
+        //final TextField name = new TextField();
+        //name.setCaption("Type your name here:");
 
         //Crea el botón y le añade el evento
-        Button button = new Button("Click Me");
+        Button button = new Button("Calcular Salario Bruto:");
         button.addClickListener(e -> {
             //layout.addComponent(new Label("Thanks " + name.getValue()
                     //+ ", it works!"));
         });
 
         //En el marco (Layout) añademe los eventos que he creado arriba
-        layout.addComponents(name, button);
+        layout.addComponents(tipo, ventasMes, horasExtra, button);
         
         setContent(layout);
     }
