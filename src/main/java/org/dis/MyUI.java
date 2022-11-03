@@ -35,6 +35,7 @@ public class MyUI extends UI {
         TextField ventasMes = creaLabel("Ventas del Mes:");
         TextField horasExtra = creaLabel("Horas Extra:");
 
+        salarioBruto.addComponents(tipo,ventasMes,horasExtra);
         //Esto es para el huequecito de la cagita
         //final TextField name = new TextField();
         //name.setCaption("Type your name here:");
@@ -45,9 +46,12 @@ public class MyUI extends UI {
             //layout.addComponent(new Label("Thanks " + name.getValue()
                     //+ ", it works!"));
         });
+        TabSheet tabs = new TabSheet();
+        tabs.addTab(salarioBruto).setCaption("Calcular Salario Bruto");
+        tabs.addTab(salarioNeto).setCaption("Calcular Salario Neto");
 
         //En el marco (Layout) añademe los eventos que he creado arriba
-        layout.addComponents(tipo, ventasMes, horasExtra, button);
+        layout.addComponents(tabs, button);
         
         setContent(layout);
     }
