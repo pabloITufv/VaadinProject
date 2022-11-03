@@ -24,17 +24,21 @@ public class MyUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
+        //Vertical Layout es un Marco en Vaadin
         final VerticalLayout layout = new VerticalLayout();
-        
+
+        //Esto es para el huequecito de la cagita
         final TextField name = new TextField();
         name.setCaption("Type your name here:");
 
+        //Crea el botón y le añade el evento
         Button button = new Button("Click Me");
         button.addClickListener(e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"));
+            //layout.addComponent(new Label("Thanks " + name.getValue()
+                    //+ ", it works!"));
         });
-        
+
+        //En el marco (Layout) añademe los eventos que he creado arriba
         layout.addComponents(name, button);
         
         setContent(layout);
