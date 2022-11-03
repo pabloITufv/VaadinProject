@@ -22,6 +22,12 @@ import com.vaadin.ui.VerticalLayout;
 @Theme("mytheme")
 public class MyUI extends UI {
 
+    //Crea un objeto de tipo label y le pone un nombre
+    private TextField creaLabel(String texto){
+        TextField etiqueta = new TextField();
+        etiqueta.setCaption(texto);
+        return etiqueta;
+    }
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         //Vertical Layout es un Marco en Vaadin
